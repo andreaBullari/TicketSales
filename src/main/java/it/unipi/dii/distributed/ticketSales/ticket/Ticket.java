@@ -2,7 +2,7 @@ package it.unipi.dii.distributed.ticketSales.ticket;
 
 import javax.persistence.*;
 import java.util.Date;
-@Entity(name = "Student")
+@Entity
 @Table
 public class Ticket {
 
@@ -16,40 +16,16 @@ public class Ticket {
             strategy = GenerationType.SEQUENCE,
             generator = "ticket_sequence"
     )
-    @Column(
-            name = "id",
-            updatable = false
-    )
-    private long id;
-    @Column(
-            name = "email",
-            nullable = false
-    )
-    private String email;
-    @Column(
-            name= "price",
-            nullable = false
 
-    )
+    private long id;
+    private String email;
     private double price;
-    @Column(
-            name= "position",
-            nullable = false
-    )
     private int position;
-    @Column(
-            name= "event",
-            nullable = false
-    )
     private String event;
-    @Column(
-            name= "eventDate",
-            nullable = false
-    )
     private Date eventDate;
 
-    public Ticket(long id, String email, double price, int position, String event, Date eventDate) {
-        this.id = id;
+    public Ticket(){}
+    public Ticket( String email, double price, int position, String event, Date eventDate) {
         this.email = email;
         this.price = price;
         this.position = position;
